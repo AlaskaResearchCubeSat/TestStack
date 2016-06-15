@@ -1,0 +1,98 @@
+<!DOCTYPE CrossStudio_Session_File>
+<session>
+ <Bookmarks>
+  <BookmarkItem column="-1" line="872" path="C:\Users\dthorsen\Desktop\SSEP-Z\Software\Libraries\ARClib\ISR.c" number="14" extra="I2C_rx_buf[I2C_rx_in].stat=I2C_PACKET_STAT_EMPTY;" name="unnamed" color="5" />
+  <BookmarkItem column="-1" line="751" path="C:\Users\dthorsen\Desktop\SSEP-Z\Software\Libraries\ARClib\ISR.c" number="4" extra="I2C_rx_buf[I2C_rx_in].len=arcBus_stat.i2c_stat.rx.idx;" name="unnamed" color="5" />
+  <BookmarkItem column="-1" line="797" path="C:\Users\dthorsen\Desktop\SSEP-Z\Software\Libraries\ARClib\ISR.c" number="10" extra="if(I2C_rx_buf[I2C_rx_in].stat!=I2C_PACKET_STAT_EMPTY){" name="unnamed" color="5" />
+  <BookmarkItem column="-1" line="802" path="C:\Users\dthorsen\Desktop\SSEP-Z\Software\Libraries\ARClib\ISR.c" number="11" extra="arcBus_stat.i2c_stat.rx.ptr=I2C_rx_buf[I2C_rx_in].dat;" name="unnamed" color="5" />
+  <BookmarkItem column="-1" line="808" path="C:\Users\dthorsen\Desktop\SSEP-Z\Software\Libraries\ARClib\ISR.c" number="12" extra="I2C_rx_buf[I2C_rx_in].stat=I2C_PACKET_STAT_IN_PROGRESS;" name="unnamed" color="5" />
+  <BookmarkItem column="-1" line="870" path="C:\Users\dthorsen\Desktop\SSEP-Z\Software\Libraries\ARClib\ISR.c" number="13" extra="if(I2C_rx_buf[I2C_rx_in].stat==I2C_PACKET_STAT_IN_PROGRESS){" name="unnamed" color="5" />
+ </Bookmarks>
+ <Breakpoints>
+  <BreakpointListItem line="215" action="" hardwareBreakpoint="" trigger="" useHWbreakpoint="false" group="Breakpoints" type="Breakpoint" state="2" counter="0" isFunctionBreakpoint="false" filename="Z:/Software/TestStack/CDH-Test/commands.c" expression="" />
+  <BreakpointListItem line="53" action="" hardwareBreakpoint="" trigger="" useHWbreakpoint="false" group="Breakpoints" type="Breakpoint" state="4" counter="0" isFunctionBreakpoint="false" filename="z:/software/libraries/arclib/crt0.asm" expression="" />
+  <BreakpointListItem line="205" action="" hardwareBreakpoint="" trigger="" useHWbreakpoint="false" group="Breakpoints" type="Breakpoint" state="4" counter="0" isFunctionBreakpoint="false" filename="Z:/Software/Libraries/ARClib/ISR.c" expression="" />
+  <BreakpointListItem line="238" action="" hardwareBreakpoint="" trigger="" useHWbreakpoint="false" group="Breakpoints" type="Breakpoint" state="4" counter="0" isFunctionBreakpoint="false" filename="Z:/Software/Libraries/ARClib/ISR.c" expression="" />
+  <BreakpointListItem line="83" action="" hardwareBreakpoint="" trigger="" useHWbreakpoint="false" group="Breakpoints" type="Breakpoint" state="2" counter="0" isFunctionBreakpoint="false" filename="Z:/Software/TestStack/CDH-Test/main.c" expression="" />
+  <BreakpointListItem line="125" action="" hardwareBreakpoint="" trigger="" useHWbreakpoint="false" group="Breakpoints" type="Breakpoint" state="4" counter="0" isFunctionBreakpoint="false" filename="Z:/software/libraries/arclib/mainLoop.c" expression="" />
+  <BreakpointListItem line="595" action="" hardwareBreakpoint="" trigger="" useHWbreakpoint="false" group="Breakpoints" type="Breakpoint" state="2" counter="0" isFunctionBreakpoint="false" filename="Z:/arc-2/arc2-software/libraries/arclib/mainLoop.c" expression="" />
+ </Breakpoints>
+ <EEMRegistersWindow>
+  <EEMRegisters moduleClockControl="60d7" generalClockControl="2e" />
+ </EEMRegistersWindow>
+ <EEMStateStorageWindow>
+  <EEMStateStorage control="2" />
+ </EEMStateStorageWindow>
+ <EEMTriggerSequencerWindow>
+  <EEMTriggers seqnxtstate0="0" seqnxtstate1="0" seq_ctl="0" seqaction="" />
+ </EEMTriggerSequencerWindow>
+ <EEMTriggersWindow/>
+ <ExecutionProfileWindow/>
+ <FrameBufferWindow>
+  <FrameBufferWindow addressText="" bufferWidth="-1" bufferHeight="-1" addressSpace="" />
+ </FrameBufferWindow>
+ <Memory1>
+  <MemoryWindow autoEvaluate="0" addressText="0xd720" numColumns="8" sizeText="20" dataSize="1" radix="16" name="CDHTest" addressSpace="" />
+ </Memory1>
+ <Memory2>
+  <MemoryWindow autoEvaluate="0" addressText="0x2efb" numColumns="8" sizeText="20" dataSize="1" radix="16" name="CDHTest" addressSpace="" />
+ </Memory2>
+ <Memory3>
+  <MemoryWindow autoEvaluate="0" addressText="0" numColumns="8" sizeText="20" dataSize="2" radix="10" name="CDHTest" addressSpace="" />
+ </Memory3>
+ <Memory4>
+  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="CDHTest" addressSpace="" />
+ </Memory4>
+ <Project>
+  <ProjectSessionItem path="CDHTest" name="unnamed" />
+  <ProjectSessionItem path="CDHTest;CDHTest" name="unnamed" />
+  <ProjectSessionItem path="CDHTest;CDHTest;Source Files" name="unnamed" />
+ </Project>
+ <Register1>
+  <RegisterWindow openNodes="UCSI_B0_I2C/UCB0CTL0;UCSI_B0_I2C/UCB0CTL1;CPU Registers" binaryNodes="UCSI_B0_I2C/UCB0CTLW0;UCSI_B0_I2C/UCB0CTL1" unsignedNodes="" decimalNodes="" octalNodes="" asciiNodes="" visibleNodes="UCSI_B0_I2C/UCB0CTLW0;UCSI_B0_I2C/UCB0CTL0;UCSI_B0_I2C/UCB0CTL1;UCSI_B0_I2C/UCB0CTLW1;UCSI_B0_I2C/UCB0BRW;UCSI_B0_I2C/UCB0BR0;UCSI_B0_I2C/UCB0BR1;UCSI_B0_I2C/UCB0STATW;UCSI_B0_I2C/UCB0TBCNT;UCSI_B0_I2C/UCB0RXBUF;UCSI_B0_I2C/UCB0TXBUF;UCSI_B0_I2C/UCB0I2COA0;UCSI_B0_I2C/UCB0I2COA1;UCSI_B0_I2C/UCB0I2COA2;UCSI_B0_I2C/UCB0I2COA3;UCSI_B0_I2C/UCB0ADDRX;UCSI_B0_I2C/UCB0ADDMASK;UCSI_B0_I2C/UCB0I2CSA;UCSI_B0_I2C/UCB0IE;UCSI_B0_I2C/UCB0IFG;UCSI_B0_I2C/UCB0IV;P3/P3IN;P3/P3OUT;P3/P3DIR;P3/P3REN;P3/P3DS;PORT_MAPPING/PMAPKEYID;PORT_MAPPING/PMAPCTL;PORT_MAPPING_PORT_P3/P3MAP0;PORT_MAPPING_PORT_P3/P3MAP1;PORT_MAPPING_PORT_P3/P3MAP2;PORT_MAPPING_PORT_P3/P3MAP3;PORT_MAPPING_PORT_P3/P3MAP4;PORT_MAPPING_PORT_P3/P3MAP5;PORT_MAPPING_PORT_P3/P3MAP6;PORT_MAPPING_PORT_P3/P3MAP7;PORT_MAPPING_PORT_P3/P3MAP01;PORT_MAPPING_PORT_P3/P3MAP23;PORT_MAPPING_PORT_P3/P3MAP45;PORT_MAPPING_PORT_P3/P3MAP67;CPU Registers/PC;CPU Registers/SP;CPU Registers/SR;CPU Registers/R4;CPU Registers/R5;CPU Registers/R6;CPU Registers/R7;CPU Registers/R8;CPU Registers/R9;CPU Registers/R10;CPU Registers/R11;CPU Registers/R12;CPU Registers/R13;CPU Registers/R14;CPU Registers/R15" name="CDHTest" />
+ </Register1>
+ <Register2>
+  <RegisterWindow openNodes="CPU Registers" binaryNodes="" unsignedNodes="" decimalNodes="" octalNodes="" asciiNodes="" visibleNodes="CPU Registers/PC;CPU Registers/SP;CPU Registers/SR;CPU Registers/R4;CPU Registers/R5;CPU Registers/R6;CPU Registers/R7;CPU Registers/R8;CPU Registers/R9;CPU Registers/R10;CPU Registers/R11;CPU Registers/R12;CPU Registers/R13;CPU Registers/R14;CPU Registers/R15" name="CDHTest" />
+ </Register2>
+ <Register3>
+  <RegisterWindow openNodes="CPU Registers" binaryNodes="" unsignedNodes="" decimalNodes="" octalNodes="" asciiNodes="" visibleNodes="CPU Registers/PC;CPU Registers/SP;CPU Registers/SR;CPU Registers/R4;CPU Registers/R5;CPU Registers/R6;CPU Registers/R7;CPU Registers/R8;CPU Registers/R9;CPU Registers/R10;CPU Registers/R11;CPU Registers/R12;CPU Registers/R13;CPU Registers/R14;CPU Registers/R15" name="CDHTest" />
+ </Register3>
+ <Register4>
+  <RegisterWindow openNodes="CPU Registers" binaryNodes="" unsignedNodes="" decimalNodes="" octalNodes="" asciiNodes="" visibleNodes="CPU Registers/PC;CPU Registers/SP;CPU Registers/SR;CPU Registers/R4;CPU Registers/R5;CPU Registers/R6;CPU Registers/R7;CPU Registers/R8;CPU Registers/R9;CPU Registers/R10;CPU Registers/R11;CPU Registers/R12;CPU Registers/R13;CPU Registers/R14;CPU Registers/R15" name="CDHTest" />
+ </Register4>
+ <TargetWindow programAction="" uploadFileType="" programLoadAddress="" programSize="" uploadFileName="" uploadMemoryInterface="" programFileName="" uploadStartAddress="" programFileType="" uploadSize="" programMemoryInterface="" />
+ <TraceWindow>
+  <Trace enabled="No" />
+ </TraceWindow>
+ <Watch1>
+  <Watches active="1" update="Never" >
+   <Watchpoint evalMode="1" linenumber="69" evalType="1" radix="-1" name="cmd_parse_list" expression="cmd_parse_list" filename="Z:/arc-2/arc2-software/libraries/arclib/mainLoop.c" />
+   <Watchpoint linenumber="599" radix="-1" name="parse_mask" expression="parse_mask" filename="Z:/arc-2/arc2-software/libraries/arclib/mainLoop.c" />
+   <Watchpoint evalMode="1" linenumber="595" evalType="1" radix="-1" name="parse_ptr" expression="parse_ptr" filename="Z:/arc-2/arc2-software/libraries/arclib/mainLoop.c" />
+   <Watchpoint linenumber="595" radix="-1" name="resp" expression="resp" filename="Z:/arc-2/arc2-software/libraries/arclib/mainLoop.c" />
+  </Watches>
+ </Watch1>
+ <Watch2>
+  <Watches active="0" update="Never" />
+ </Watch2>
+ <Watch3>
+  <Watches active="0" update="Never" />
+ </Watch3>
+ <Watch4>
+  <Watches active="0" update="Never" />
+ </Watch4>
+ <Files>
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/Software/TestStack/CDH-Test/CDH.c" y="32" path="Z:/Software/TestStack/CDH-Test/CDH.c" left="0" selected="0" name="unnamed" top="28" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/Software/TestStack/CDH-Test/main.c" y="21" path="Z:/Software/TestStack/CDH-Test/main.c" left="0" selected="0" name="unnamed" top="15" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/Software/TestStack/CDH-Test/commands.c" y="274" path="Z:/Software/TestStack/CDH-Test/commands.c" left="0" selected="1" name="unnamed" top="266" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/Software/TestStack/CDH-Test/CDH.h" y="86" path="Z:/Software/TestStack/CDH-Test/CDH.h" left="0" selected="0" name="unnamed" top="82" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/Software/TestStack/CDH-Test/Error_decode.c" y="54" path="Z:/Software/TestStack/CDH-Test/Error_decode.c" left="0" selected="0" name="unnamed" top="32" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/Software/TestStack/CDH-Test/CDH_errors.h" y="24" path="Z:/Software/TestStack/CDH-Test/CDH_errors.h" left="0" selected="0" name="unnamed" top="0" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/arc-2/arc2-software/libraries/arclib/mainLoop.c" y="585" path="Z:/arc-2/arc2-software/libraries/arclib/mainLoop.c" left="0" selected="0" name="unnamed" top="572" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/arc-2/arc2-software/libraries/arclib/ARCbus.c" y="23" path="Z:/arc-2/arc2-software/libraries/arclib/ARCbus.c" left="0" selected="0" name="unnamed" top="0" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="z:/arc-2/arc2-software/libraries/sd-lib/spi.c" y="113" path="Z:/arc-2/arc2-software/libraries/sd-lib/SPI.c" left="0" selected="0" name="unnamed" top="68" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/ARC-2/ARC2-Software/include/ARCbus.h" y="187" path="Z:/ARC-2/ARC2-Software/include/ARCbus.h" left="0" selected="0" name="unnamed" top="164" />
+ </Files>
+ <MSP430CrossStudioWindow activeProject="CDHTest" autoConnectTarget="MSP-FET430UIF(V3)" debugSearchFileMap="z:/software/libraries/arclib/arcbus.c
+C:/Users/dthorsen/Desktop/SSEP-Z/Software/Libraries/ARClib/ARCbus.c" fileDialogInitialDirectory="Z:/Software/Thorsen/CDH-FLIGHT" fileDialogDefaultFilter="*.c" autoConnectCapabilities="528255" debugSearchPath="" buildConfiguration="MSP430 Debug" />
+</session>

@@ -1,0 +1,79 @@
+//LEDL Test
+//Denise Thorsen
+//2014-07-07
+
+#include <string.h>
+#include <ctl.h>
+#include <msp430.h>
+#include <ARCbus.h>
+#include <terminal.h>
+#include <UCA1_uart.h>
+#include <stdio.h>
+#include <Error.h>
+#include "LEDL.h"
+#include "pins.h"
+#include "LEDL_errors.h"
+
+//Define three task structures in array tasks (what are these tasks?)
+CTL_TASK_t tasks[3];
+
+//Define stacks for each tasks, STACKSize is the middle number
+unsigned stack1[1+256+1];
+unsigned stack2[1+512+1];
+unsigned stack3[1+256+1];
+
+//make printf and friends to send chars out UCA1 uart
+int __putchar(int c){
+  //don't print if async connection is open
+  if(!async_isOpen()){
+    return UCA1_TxChar(c);
+  }else{
+    return EOF;
+  }
+}
+
+//set scanf and friends to read chars from UAC1 uart
+int __getchar(void){
+    return UCA1_Getc();
+}
+
+int main(void)
+{
+  //Do this first
+  ARC_setup();
+
+  //register error handler
+  err_register_handler(ERR_SRC_CMD,ERR_SRC_CMD,LEDL_err_decode,ERR_FLAGS_SUBSYSTEM);
+
+  //setup UCA1 uart
+  UCA1_init_UART(UART_PORT,UART_TX_PIN_NUM,UART_RX_PIN_NUM);
+
+  //setup buss interface - LEDL
+  initARCbus(BUS_ADDR_LEDL);
+
+  //initialize stacks
+  memset(stack1, 0xcd, sizeof(stack1));  // write known values into the stack
+  stack1[0]=stack1[sizeof(stack1)/sizeof(stack1[0])-1]=0xfeed; // put marker values at the words before/after the stack
+ 
+  memset(stack2, 0xcd, sizeof(stack2));  // write known values into the stack
+  stack2[0]=stack2[sizeof(stack2)/sizeof(stack2[0])-1]=0xfeed; // put marker values at the words before/after the stack
+
+  memset(stack3, 0xcd, sizeof(stack3));  // write known values into the stack
+  stack3[0]=stack3[sizeof(stack3)/sizeof(stack3[0])-1]=0xfeed; // put marker values at the words before/after the stack
+
+//create tasks
+  ctl_task_run(&tasks[0], BUS_PRI_LOW, LEDL_events, NULL, "LEDL_events", sizeof(stack1)/sizeof(stack1[0])-2,stack1+1,0);
+  ctl_task_run(&tasks[1], BUS_PRI_NORMAL, terminal, "Test LEDL code", "terminal", sizeof(stack2)/sizeof(stack2[0])-2,stack2+1,0);
+  ctl_task_run(&tasks[2], BUS_PRI_HIGH, sub_events, NULL, "sub_events", sizeof(stack3)/sizeof(stack3[0])-2,stack3+1,0);
+
+  //set LED's for shifting
+  if(!P7OUT){
+    P7OUT = BIT0;
+  }
+  P7DIR = 0xFF;
+  P7SEL0 = 0;
+   
+ //Call mainLoop to initialize the ARCbus task and drop the idle task priority to zero allowing other tasks to run.  This is the idle loop.
+  mainLoop();
+
+}

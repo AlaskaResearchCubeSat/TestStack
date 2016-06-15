@@ -1,0 +1,83 @@
+<!DOCTYPE CrossStudio_Session_File>
+<session>
+ <Bookmarks/>
+ <Breakpoints>
+  <BreakpointListItem line="25" action="" hardwareBreakpoint="" trigger="" useHWbreakpoint="false" group="Breakpoints" type="Breakpoint" state="2" counter="0" isFunctionBreakpoint="false" filename="Z:/Software/Libraries/ErrorLib/error.c" expression="" />
+  <BreakpointListItem line="307" action="" hardwareBreakpoint="" trigger="" useHWbreakpoint="false" group="Breakpoints" type="Breakpoint" state="4" counter="0" isFunctionBreakpoint="false" filename="Z:/Software/Libraries/ErrorLib/error.c" expression="" />
+  <BreakpointListItem line="55" action="" hardwareBreakpoint="" trigger="" useHWbreakpoint="false" group="Breakpoints" type="Breakpoint" state="2" counter="0" isFunctionBreakpoint="false" filename="Z:/Software/TestStack/IMGTest/IMG_errors.h" expression="" />
+ </Breakpoints>
+ <EEMRegistersWindow>
+  <EEMRegisters moduleClockControl="2407" generalClockControl="2e" />
+ </EEMRegistersWindow>
+ <EEMStateStorageWindow>
+  <EEMStateStorage control="2" />
+ </EEMStateStorageWindow>
+ <EEMTriggerSequencerWindow>
+  <EEMTriggers seqnxtstate0="0" seqnxtstate1="0" seq_ctl="0" seqaction="" />
+ </EEMTriggerSequencerWindow>
+ <EEMTriggersWindow/>
+ <ExecutionProfileWindow/>
+ <FrameBufferWindow>
+  <FrameBufferWindow addressText="" bufferWidth="-1" bufferHeight="-1" addressSpace="" />
+ </FrameBufferWindow>
+ <Memory1>
+  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="IMGTest" addressSpace="" />
+ </Memory1>
+ <Memory2>
+  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="IMGTest" addressSpace="" />
+ </Memory2>
+ <Memory3>
+  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="IMGTest" addressSpace="" />
+ </Memory3>
+ <Memory4>
+  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="IMGTest" addressSpace="" />
+ </Memory4>
+ <Project>
+  <ProjectSessionItem path="IMGTest" name="unnamed" />
+  <ProjectSessionItem path="IMGTest;IMGTest" name="unnamed" />
+  <ProjectSessionItem path="IMGTest;IMGTest;Source Files" name="unnamed" />
+ </Project>
+ <Register1>
+  <RegisterWindow openNodes="PJ;SFR;SFR/SFRRPCR" binaryNodes="" unsignedNodes="" decimalNodes="" octalNodes="" asciiNodes="" visibleNodes="CPU Registers/PC;CPU Registers/SP;CPU Registers/SR;CPU Registers/R4;CPU Registers/R5;CPU Registers/R6;CPU Registers/R7;CPU Registers/R8;CPU Registers/R9;CPU Registers/R10;CPU Registers/R11;CPU Registers/R12;CPU Registers/R13;CPU Registers/R14;CPU Registers/R15;PJ/PJIN;PJ/PJOUT;PJ/PJDIR;PJ/PJREN;PJ/PJDS;PJ/PJSEL;PJ/PJIN_L;PJ/PJOUT_L;PJ/PJDIR_L;PJ/PJREN_L;PJ/PJDS_L;PJ/PJSEL_L;PJ/PJIN_H;PJ/PJOUT_H;PJ/PJDIR_H;PJ/PJREN_H;PJ/PJDS_H;PJ/PJSEL_H;SFR/SFRIE1;SFR/SFRIFG1;SFR/SFRRPCR" name="IMGTest" />
+ </Register1>
+ <Register2>
+  <RegisterWindow openNodes="CPU Registers" binaryNodes="" unsignedNodes="" decimalNodes="" octalNodes="" asciiNodes="" visibleNodes="CPU Registers/PC;CPU Registers/SP;CPU Registers/SR;CPU Registers/R4;CPU Registers/R5;CPU Registers/R6;CPU Registers/R7;CPU Registers/R8;CPU Registers/R9;CPU Registers/R10;CPU Registers/R11;CPU Registers/R12;CPU Registers/R13;CPU Registers/R14;CPU Registers/R15" name="IMGTest" />
+ </Register2>
+ <Register3>
+  <RegisterWindow openNodes="CPU Registers" binaryNodes="" unsignedNodes="" decimalNodes="" octalNodes="" asciiNodes="" visibleNodes="CPU Registers/PC;CPU Registers/SP;CPU Registers/SR;CPU Registers/R4;CPU Registers/R5;CPU Registers/R6;CPU Registers/R7;CPU Registers/R8;CPU Registers/R9;CPU Registers/R10;CPU Registers/R11;CPU Registers/R12;CPU Registers/R13;CPU Registers/R14;CPU Registers/R15" name="IMGTest" />
+ </Register3>
+ <Register4>
+  <RegisterWindow openNodes="CPU Registers" binaryNodes="" unsignedNodes="" decimalNodes="" octalNodes="" asciiNodes="" visibleNodes="CPU Registers/PC;CPU Registers/SP;CPU Registers/SR;CPU Registers/R4;CPU Registers/R5;CPU Registers/R6;CPU Registers/R7;CPU Registers/R8;CPU Registers/R9;CPU Registers/R10;CPU Registers/R11;CPU Registers/R12;CPU Registers/R13;CPU Registers/R14;CPU Registers/R15" name="IMGTest" />
+ </Register4>
+ <TargetWindow programAction="" uploadFileType="" programLoadAddress="" programSize="" uploadFileName="" uploadMemoryInterface="" programFileName="" uploadStartAddress="" programFileType="" uploadSize="" programMemoryInterface="" />
+ <TraceWindow>
+  <Trace enabled="Yes" />
+ </TraceWindow>
+ <Watch1>
+  <Watches active="1" update="Never" >
+   <Watchpoint linenumber="312" radix="-1" name="i" expression="i" filename="Z:/Software/Libraries/ErrorLib/error.c" />
+   <Watchpoint linenumber="307" radix="-1" name="source" expression="source" filename="Z:/Software/Libraries/ErrorLib/error.c" />
+   <Watchpoint linenumber="312" radix="-1" name="flags" expression="flags" filename="Z:/Software/Libraries/ErrorLib/error.c" />
+   <Watchpoint evalMode="2" linenumber="23" numelements="4" evalType="0" radix="-1" name="decode_tbl" expression="decode_tbl" filename="Z:/Software/Libraries/ErrorLib/error.c" />
+   <Watchpoint linenumber="21" radix="-1" name="err_next_decode" expression="err_next_decode" filename="Z:/Software/Libraries/ErrorLib/error.c" />
+  </Watches>
+ </Watch1>
+ <Watch2>
+  <Watches active="0" update="Never" />
+ </Watch2>
+ <Watch3>
+  <Watches active="0" update="Never" />
+ </Watch3>
+ <Watch4>
+  <Watches active="0" update="Never" />
+ </Watch4>
+ <Files>
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/Software/TestStack/IMGTest/commands.c" y="12" path="Z:/Software/TestStack/IMGTest/commands.c" left="0" selected="0" name="unnamed" top="15" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/Software/TestStack/IMGTest/IMG.c" y="3" path="Z:/Software/TestStack/IMGTest/IMG.c" left="0" selected="0" name="unnamed" top="0" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/Software/TestStack/IMGTest/IMG.h" y="11" path="Z:/Software/TestStack/IMGTest/IMG.h" left="0" selected="0" name="unnamed" top="0" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/Software/TestStack/IMGTest/Error_decode.c" y="17" path="Z:/Software/TestStack/IMGTest/Error_decode.c" left="0" selected="0" name="unnamed" top="0" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="z:/software/teststack/imgtest/main.c" y="73" path="Z:/software/teststack/imgtest/main.c" left="0" selected="0" name="unnamed" top="69" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/Software/TestStack/IMGTest/IMG_errors.h" y="9" path="Z:/Software/TestStack/IMGTest/IMG_errors.h" left="0" selected="1" name="unnamed" top="0" />
+ </Files>
+ <MSP430CrossStudioWindow activeProject="IMGTest" autoConnectTarget="MSP-FET430UIF(V3)" debugSearchFileMap="" fileDialogInitialDirectory="Z:/Software/Libraries/ErrorLib" fileDialogDefaultFilter="*.c" autoConnectCapabilities="528255" debugSearchPath="" buildConfiguration="MSP430 Debug" />
+</session>

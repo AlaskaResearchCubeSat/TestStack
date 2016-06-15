@@ -1,0 +1,75 @@
+<!DOCTYPE CrossStudio_Session_File>
+<session>
+ <Bookmarks/>
+ <Breakpoints/>
+ <EEMRegistersWindow>
+  <EEMRegisters moduleClockControl="2407" generalClockControl="2e" />
+ </EEMRegistersWindow>
+ <EEMStateStorageWindow>
+  <EEMStateStorage control="2" />
+ </EEMStateStorageWindow>
+ <EEMTriggerSequencerWindow>
+  <EEMTriggers seqnxtstate0="0" seqnxtstate1="0" seq_ctl="0" seqaction="" />
+ </EEMTriggerSequencerWindow>
+ <EEMTriggersWindow/>
+ <ExecutionProfileWindow/>
+ <FrameBufferWindow>
+  <FrameBufferWindow addressText="" bufferWidth="-1" bufferHeight="-1" addressSpace="" />
+ </FrameBufferWindow>
+ <Memory1>
+  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="COMMTest" addressSpace="" />
+ </Memory1>
+ <Memory2>
+  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="COMMTest" addressSpace="" />
+ </Memory2>
+ <Memory3>
+  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="COMMTest" addressSpace="" />
+ </Memory3>
+ <Memory4>
+  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="COMMTest" addressSpace="" />
+ </Memory4>
+ <Project>
+  <ProjectSessionItem path="COMMTest" name="unnamed" />
+  <ProjectSessionItem path="COMMTest;COMMTest" name="unnamed" />
+  <ProjectSessionItem path="COMMTest;COMMTest;Source Files" name="unnamed" />
+ </Project>
+ <Register1>
+  <RegisterWindow openNodes="UCSI_A0_SPI" binaryNodes="" unsignedNodes="" decimalNodes="" octalNodes="" asciiNodes="" visibleNodes="UCSI_A0_SPI/UCA0CTLW0;UCSI_A0_SPI/UCA0CTL0;UCSI_A0_SPI/UCA0CTL1;UCSI_A0_SPI/UCA0BRW;UCSI_A0_SPI/UCA0BR0;UCSI_A0_SPI/UCA0BR1;UCSI_A0_SPI/UCA0MCTLW;UCSI_A0_SPI/UCA0STATW;UCSI_A0_SPI/UCA0RXBUF;UCSI_A0_SPI/UCA0TXBUF;UCSI_A0_SPI/UCA0IE;UCSI_A0_SPI/UCA0IFG;UCSI_A0_SPI/UCA0IV" name="COMMTest" />
+ </Register1>
+ <Register2>
+  <RegisterWindow openNodes="CPU Registers" binaryNodes="" unsignedNodes="" decimalNodes="" octalNodes="" asciiNodes="" visibleNodes="CPU Registers/PC;CPU Registers/SP;CPU Registers/SR;CPU Registers/R4;CPU Registers/R5;CPU Registers/R6;CPU Registers/R7;CPU Registers/R8;CPU Registers/R9;CPU Registers/R10;CPU Registers/R11;CPU Registers/R12;CPU Registers/R13;CPU Registers/R14;CPU Registers/R15" name="COMMTest" />
+ </Register2>
+ <Register3>
+  <RegisterWindow openNodes="CPU Registers" binaryNodes="" unsignedNodes="" decimalNodes="" octalNodes="" asciiNodes="" visibleNodes="CPU Registers/PC;CPU Registers/SP;CPU Registers/SR;CPU Registers/R4;CPU Registers/R5;CPU Registers/R6;CPU Registers/R7;CPU Registers/R8;CPU Registers/R9;CPU Registers/R10;CPU Registers/R11;CPU Registers/R12;CPU Registers/R13;CPU Registers/R14;CPU Registers/R15" name="COMMTest" />
+ </Register3>
+ <Register4>
+  <RegisterWindow openNodes="CPU Registers" binaryNodes="" unsignedNodes="" decimalNodes="" octalNodes="" asciiNodes="" visibleNodes="CPU Registers/PC;CPU Registers/SP;CPU Registers/SR;CPU Registers/R4;CPU Registers/R5;CPU Registers/R6;CPU Registers/R7;CPU Registers/R8;CPU Registers/R9;CPU Registers/R10;CPU Registers/R11;CPU Registers/R12;CPU Registers/R13;CPU Registers/R14;CPU Registers/R15" name="COMMTest" />
+ </Register4>
+ <TargetWindow programAction="" uploadFileType="" programLoadAddress="" programSize="" uploadFileName="" uploadMemoryInterface="" programFileName="" uploadStartAddress="" programFileType="" uploadSize="" programMemoryInterface="" />
+ <TraceWindow>
+  <Trace enabled="Yes" />
+ </TraceWindow>
+ <Watch1>
+  <Watches active="1" update="Never" />
+ </Watch1>
+ <Watch2>
+  <Watches active="0" update="Never" />
+ </Watch2>
+ <Watch3>
+  <Watches active="0" update="Never" />
+ </Watch3>
+ <Watch4>
+  <Watches active="0" update="Never" />
+ </Watch4>
+ <Files>
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/software/teststack/commtest/COMM.c" y="9" path="Z:/software/teststack/commtest/COMM.c" left="0" selected="0" name="unnamed" top="6" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/Software/TestStack/COMMTest/COMM.h" y="22" path="Z:/Software/TestStack/COMMTest/COMM.h" left="0" selected="0" name="unnamed" top="18" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/Software/TestStack/COMMTest/COMM_errors.h" y="15" path="Z:/Software/TestStack/COMMTest/COMM_errors.h" left="0" selected="0" name="unnamed" top="11" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/software/teststack/commtest/main.c" y="18" path="Z:/software/teststack/commtest/main.c" left="0" selected="0" name="unnamed" top="0" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="17" debugPath="Z:/software/teststack/commtest/commands.c" y="29" path="Z:/software/teststack/commtest/commands.c" left="0" selected="1" name="unnamed" top="0" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/Software/TestStack/COMMTest/COMMTest.hzp" y="16" path="Z:/Software/TestStack/COMMTest/COMMTest.hzp" left="0" selected="0" name="unnamed" top="12" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/ARC-2/ARC2-ACDS/ARC2-ACDS-Software/ACDS.hzp" y="114" path="Z:/ARC-2/ARC2-ACDS/ARC2-ACDS-Software/ACDS.hzp" left="0" selected="0" name="unnamed" top="93" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/software/teststack/commtest/Error_decode.c" y="1" path="Z:/software/teststack/commtest/Error_decode.c" left="0" selected="0" name="unnamed" top="0" />
+ </Files>
+ <MSP430CrossStudioWindow activeProject="COMMTest" autoConnectTarget="MSP-FET430UIF(V3)" debugSearchFileMap="" fileDialogInitialDirectory="Z:/ARC-2/ARC2-ACDS/ARC2-ACDS-Software" fileDialogDefaultFilter="*.c" autoConnectCapabilities="528255" debugSearchPath="" buildConfiguration="MSP430 Debug" />
+</session>
