@@ -1,7 +1,3 @@
-//LEDL Test
-//Denise Thorsen
-//2014-07-07
-
 #include <string.h>
 #include <ctl.h>
 #include <msp430.h>
@@ -13,6 +9,7 @@
 #include "LEDL.h"
 #include "pins.h"
 #include "LEDL_errors.h"
+#include <SDlib.h>
 
 //Define three task structures in array tasks (what are these tasks?)
 CTL_TASK_t tasks[3];
@@ -23,18 +20,17 @@ unsigned stack2[1+512+1];
 unsigned stack3[1+256+1];
 
 //make printf and friends to send chars out UCA1 uart
-int __putchar(int c){
-  //don't print if async connection is open
-  if(!async_isOpen()){
-    return UCA1_TxChar(c);
-  }else{
-    return EOF;
-  }
+int __putchar(int c)
+{
+  async_TxChar(c);
+  UCA1_TxChar(c);
+  return 0;
 }
 
 //set scanf and friends to read chars from UAC1 uart
-int __getchar(void){
-    return UCA1_Getc();
+int __getchar(void)
+{
+  return async_Getc();
 }
 
 int main(void)
@@ -50,7 +46,7 @@ int main(void)
 
   //setup buss interface - LEDL
   initARCbus(BUS_ADDR_LEDL);
-
+  
   //initialize stacks
   memset(stack1, 0xcd, sizeof(stack1));  // write known values into the stack
   stack1[0]=stack1[sizeof(stack1)/sizeof(stack1[0])-1]=0xfeed; // put marker values at the words before/after the stack
@@ -68,7 +64,7 @@ int main(void)
 
   //set LED's for shifting
   if(!P7OUT){
-    P7OUT = BIT0;
+    P7OUT = BUS_ADDR_LEDL;
   }
   P7DIR = 0xFF;
   P7SEL0 = 0;

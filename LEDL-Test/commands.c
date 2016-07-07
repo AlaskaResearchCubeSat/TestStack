@@ -13,19 +13,6 @@
 #include <Error.h>
 #include "LEDL_errors.h"
 
-//Turn on LEDL
-int onCmd(char *argv[],unsigned short argc){
-
-  P7OUT=BUS_ADDR_LEDL;
-  printf("IMG On.  Check LEDs: 0x%02x\r\n", BUS_ADDR_LEDL);
-}
-
-//Turn off LEDL
-int offCmd(char *argv[],unsigned short argc){
-  P7OUT=0;
-  printf("COMM Off.  Check LEDs: 0x00\r\n");
-}
-
 //Retreive status LEDL
 int statusCmd(char *argv[],unsigned short argc){
 
@@ -62,13 +49,18 @@ int resetCmd(char **argv,unsigned short argc){
   return 0;
 }
 
+int LEDLCmd(char **argv, unsigned short argc)
+{
+  printf("You are in LEDL \r\n\t");
+  return 0;
+}
 
 //table of commands with help
-const CMD_SPEC cmd_tbl[]={{"help"," [command]",helpCmd},
+const CMD_SPEC cmd_tbl[]={
+                    {"LEDL", "\r\n\t", LEDLCmd},
+                    {"help"," [command]",helpCmd},
                     {"reset","\r\n\t""Reset the MSP430",resetCmd},
-                    {"OnIMG","[bgnd|stop]\r\n\t""Command ON LEDL",onCmd},
-                    {"OffIMG","port [port ...]\r\n\t""Command OFF LEDL",offCmd},
-                    {"StatusIMG","\r\n\t""Get IMG status",statusCmd},
+                    //{"StatusIMG","\r\n\t""Get IMG status",statusCmd},
                    //end of list
 
                    {NULL,NULL,NULL}};

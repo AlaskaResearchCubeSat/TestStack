@@ -8,54 +8,109 @@
 
 IMG_STAT status;
 CTL_EVENT_SET_t IMG_evt;
+int readPic,writePic;
+unsigned char picNum,readBlock;
 
-#define LED_OUT       P7OUT
+int IMG_parseCmd(unsigned char src,unsigned char cmd,unsigned char *dat,unsigned short len,unsigned char flags);
 
-enum{LED_DIR_RIGHT,LED_DIR_LEFT};
-int LED_dir=LED_DIR_LEFT;
+CMD_PARSE_DAT IMG_parse={IMG_parseCmd,CMD_PARSE_ADDR1,BUS_PRI_NORMAL,NULL};
 
-void LED_shift(void){
-  if(LED_dir==LED_DIR_RIGHT){
-    LED_OUT>>=1;
-    if(!LED_OUT){
-      LED_dir=LED_DIR_LEFT;
-      LED_OUT=BIT0;
-    }
-  }else{
-    LED_OUT<<=1;
-    if(!LED_OUT){
-      LED_dir=LED_DIR_RIGHT;
-      LED_OUT=BIT7;
-    }
+int IMG_parseCmd(unsigned char src,unsigned char cmd,unsigned char *dat,unsigned short len,unsigned char flags){
+  int i;
+  int result = 0;
+  ticker time;
+
+  switch(cmd)
+  {
+    //Take a picture at a specific time
+    case CMD_IMG_TAKE_TIMED_PIC:
+      //check packet length
+      if(len!=4){
+        //packet length is incorrect
+        return ERR_PK_LEN;
+      }
+      //read time
+      time =dat[3];
+      time|=((ticker)dat[2])<<8;
+      time|=((ticker)dat[1])<<16;
+      time|=((ticker)dat[0])<<24;
+      //set alarm
+      BUS_set_alarm(BUS_ALARM_0,time,&IMG_evt,IMG_EV_TAKEPIC);
+      return RET_SUCCESS;
+    //Take a picture now
+    case CMD_IMG_TAKE_PIC_NOW:
+      //check packet length
+      if(len!=0){
+      //packet length is incorrect
+      return ERR_PK_LEN;
+      }
+      // Call the take picture event
+      ctl_events_set_clear(&IMG_evt,IMG_EV_TAKEPIC,0);
+      //Return Success
+      return RET_SUCCESS;
+    case CMD_IMG_READ_PIC:
+      //check packet length
+      if(len!=2){
+      //packet length is incorrect
+      return ERR_PK_LEN;
+      }
+      // Get the picture to read
+      readPic = dat[0];
+      // Get the block to read
+      readBlock = dat[1];
+      // Call the load picture event
+      ctl_events_set_clear(&IMG_evt,IMG_EV_LOADPIC,0);
+
+      //Return Success
+      return RET_SUCCESS;
+    //forget that we are suposed to take a picture
+    case CMD_IMG_CLEARPIC:
+      if(len!=0){
+        return ERR_PK_LEN;
+      }
+      //free the picture alarm
+      BUS_free_alarm(BUS_ALARM_0);
+      return RET_SUCCESS;
+  }
+  //Return Error
+  return ERR_UNKNOWN_CMD;
+}
+
+void sub_events(void *p) __toplevel
+{
+  unsigned int e;
+  int i, resp;
+  for(;;)
+  {
+    e=ctl_events_wait(CTL_EVENT_WAIT_ANY_EVENTS_WITH_AUTO_CLEAR,&SUB_events,SUB_EV_ALL,CTL_TIMEOUT_NONE,0);
   }
 }
 
-void sub_events(void *p) __toplevel{
+//handle IMG specific commands don't wait here.
+int SUB_parseCmd(unsigned char src, unsigned char cmd, unsigned char *dat, unsigned short len)
+{
+  return ERR_UNKNOWN_CMD;
+}
+
+void IMG_events(void *p) __toplevel
+{
   unsigned int e;
   int i, resp;
   unsigned char buf[BUS_I2C_HDR_LEN+sizeof(IMG_STAT)+BUS_I2C_CRC_LEN],*ptr;
-
-  for(;;){
-    e=ctl_events_wait(CTL_EVENT_WAIT_ANY_EVENTS_WITH_AUTO_CLEAR,&SUB_events,SUB_EV_ALL,CTL_TIMEOUT_NONE,0);
-
-//******************* COMMAND TO POWER OFF??? NOTHING HAPPENING HERE **************
-    if(e&SUB_EV_PWR_OFF){
-      //print message
-      puts("System Powering Down\r\n");
-    }
-
-//******************* COMMAND TO POWER ON??? NOTHING HAPPENING HERE **************
-    if(e&SUB_EV_PWR_ON){
-      //print message
-      puts("System Powering Up\r\n");
-    }
-
-//******************* SEND IMG STATUS TO CDH ***************************
-    if(e&SUB_EV_SEND_STAT){
-      //send status
-      puts("Sending status\r\n");
-      //shift LED's
-      LED_shift();
+    status.dat[0]=0;           //THIS IS FOR TESTING ONLY
+  //init_event
+  ctl_events_init(&IMG_evt,0);
+  //endless loop
+  for(;;)
+  {
+    //wait for events
+    e=ctl_events_wait(CTL_EVENT_WAIT_ANY_EVENTS_WITH_AUTO_CLEAR,&IMG_evt,IMG_EVT_ALL,CTL_TIMEOUT_NONE,0);
+    
+    //******************* SEND IMG STATUS TO CDH ***************************
+    if(e&SUB_EV_SEND_STAT)
+    {
+              //send status
+      puts("Sending IMG status\r\n");
       //setup packet 
       ptr=BUS_cmd_init(buf,CMD_IMG_STAT);
       //fill in telemetry data
@@ -64,72 +119,17 @@ void sub_events(void *p) __toplevel{
         ptr[i]=i;
       }
       //send command
-      resp=BUS_cmd_tx(BUS_ADDR_CDH,buf,sizeof(IMG_STAT),0);
-      ctl_events_set_clear(&IMG_evt,IMG_EVT_STATUS_REQ,0);
-      if(resp!=RET_SUCCESS){
-        printf("Failed to send status %s\r\n",BUS_error_str(resp));
+      resp=BUS_cmd_tx(BUS_ADDR_CDH,buf,sizeof(IMG_STAT),0); //BUS_I2C_SEND_FOREGROUND
+      if(resp!=RET_SUCCESS)
+      {
+        printf("Failed to send IMG status %s\r\n",BUS_error_str(resp));
       }
-    }
-
-
-// ******************* RECEIVING DATA OVER SPI *************************
-    if(e&SUB_EV_SPI_DAT){
-      puts("SPI data recived:\r");
-      //First byte contains sender address
-      //Second byte contains data type
-      //free buffer
-      BUS_free_buffer_from_event();
-    }
-
-    if(e&SUB_EV_SPI_ERR_CRC){
-      puts("SPI bad CRC\r");
+    }if(e&IMG_EV_TAKEPIC)
+    {
+      printf("Taking Picture\r\n");
+    }if(e&IMG_EV_LOADPIC)
+    {
+      printf("IMG Read request for picture %u block %u\r\n",readPic,readBlock);
     }
   }
-}
-
-
-//handle COMM specific commands don't wait here.
-int SUB_parseCmd(unsigned char src, unsigned char cmd, unsigned char *dat, unsigned short len){
-  return ERR_UNKNOWN_CMD;
-}
-
-void IMG_events(void *p) __toplevel{
-  unsigned int e;
-  int i; 
-//  char TestPacket[45];  //THIS IS FOR TESTING ONLY
-//  int TestPacket_Len;   //THIS IS FOR TESTING ONLY
-
-  //initialize status
-
-    status.dat[0]=0;           //THIS IS FOR TESTING ONLY
-
-
-  //init_event
-  ctl_events_init(&IMG_evt,0);
-
-  //endless loop
-  for(;;){
-    //wait for events
-    e=ctl_events_wait(CTL_EVENT_WAIT_ANY_EVENTS_WITH_AUTO_CLEAR,&IMG_evt,IMG_EVT_ALL,CTL_TIMEOUT_NONE,0);
-
-    //update status
-    if(e&IMG_EVT_STATUS_REQ){
-       status.dat[0]++;                  //THIS IS FOR TESTING ONLY
-                                  //Eventually need to do some actual stuff here
-    }
-  }
-
-}
-
-void PrintBuffer(char *dat, unsigned int len){
-   int i;
-
-   for(i=0;i<len;i++){
-      printf("0X%02X ",__bit_reverse_char(dat[i])); //print MSB first so it is understandable
-      if((i)%15==14){
-        printf("\r\n");
-      }
-    }
-    printf("\r\n");
-}
-
+}   

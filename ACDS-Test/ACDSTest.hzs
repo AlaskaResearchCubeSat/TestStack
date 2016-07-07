@@ -1,63 +1,34 @@
 <!DOCTYPE CrossStudio_Session_File>
 <session>
  <Bookmarks/>
- <Breakpoints>
-  <BreakpointListItem line="139" action="" hardwareBreakpoint="" trigger="" useHWbreakpoint="false" group="Breakpoints" type="Breakpoint" state="4" counter="0" isFunctionBreakpoint="false" filename="z:/software/libraries/arclib/arcbus.c" expression="" />
-  <BreakpointListItem line="183" action="" hardwareBreakpoint="" trigger="" useHWbreakpoint="false" group="Breakpoints" type="Breakpoint" state="4" counter="0" isFunctionBreakpoint="false" filename="z:/software/libraries/arclib/arcbus.c" expression="" />
-  <BreakpointListItem line="162" action="" hardwareBreakpoint="" trigger="" useHWbreakpoint="false" group="Breakpoints" type="Breakpoint" state="2" counter="0" isFunctionBreakpoint="false" filename="Z:/software/libraries/arclib/ISR.c" expression="" />
- </Breakpoints>
+ <Breakpoints/>
  <EEMRegistersWindow>
-  <EEMRegisters moduleClockControl="60d7" generalClockControl="2e" />
+  <EEMRegisters moduleClockControl="0" generalClockControl="2e" />
  </EEMRegistersWindow>
  <EEMStateStorageWindow>
   <EEMStateStorage control="2" />
  </EEMStateStorageWindow>
  <EEMTriggerSequencerWindow>
-  <EEMTriggers seqnxtstate0="65535" seqnxtstate1="65535" seq_ctl="3" seqaction="" />
+  <EEMTriggers seqnxtstate0="0" seqnxtstate1="0" seq_ctl="0" seqaction="" />
  </EEMTriggerSequencerWindow>
  <EEMTriggersWindow/>
  <ExecutionProfileWindow/>
  <FrameBufferWindow>
   <FrameBufferWindow addressText="" bufferWidth="-1" bufferHeight="-1" addressSpace="" />
  </FrameBufferWindow>
- <Memory1>
-  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="COMMTest" addressSpace="" />
-  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="ACDSTest" addressSpace="" />
- </Memory1>
- <Memory2>
-  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="COMMTest" addressSpace="" />
-  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="ACDSTest" addressSpace="" />
- </Memory2>
- <Memory3>
-  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="COMMTest" addressSpace="" />
-  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="ACDSTest" addressSpace="" />
- </Memory3>
- <Memory4>
-  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="COMMTest" addressSpace="" />
-  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="ACDSTest" addressSpace="" />
- </Memory4>
+ <Memory1/>
+ <Memory2/>
+ <Memory3/>
+ <Memory4/>
  <Project>
   <ProjectSessionItem path="ACDSTest" name="unnamed" />
   <ProjectSessionItem path="ACDSTest;ACDSTest" name="unnamed" />
   <ProjectSessionItem path="ACDSTest;ACDSTest;Source Files" name="unnamed" />
-  <SourceCodeControlLogin password="F9BB6682F5D56822" user="" />
  </Project>
- <Register1>
-  <RegisterWindow openNodes="CPU Registers" binaryNodes="" unsignedNodes="" decimalNodes="" octalNodes="" asciiNodes="" visibleNodes="" name="COMMTest" />
-  <RegisterWindow openNodes="CPU Registers" binaryNodes="" unsignedNodes="" decimalNodes="" octalNodes="" asciiNodes="" visibleNodes="" name="ACDSTest" />
- </Register1>
- <Register2>
-  <RegisterWindow openNodes="CPU Registers" binaryNodes="" unsignedNodes="" decimalNodes="" octalNodes="" asciiNodes="" visibleNodes="" name="COMMTest" />
-  <RegisterWindow openNodes="CPU Registers" binaryNodes="" unsignedNodes="" decimalNodes="" octalNodes="" asciiNodes="" visibleNodes="" name="ACDSTest" />
- </Register2>
- <Register3>
-  <RegisterWindow openNodes="CPU Registers" binaryNodes="" unsignedNodes="" decimalNodes="" octalNodes="" asciiNodes="" visibleNodes="" name="COMMTest" />
-  <RegisterWindow openNodes="CPU Registers" binaryNodes="" unsignedNodes="" decimalNodes="" octalNodes="" asciiNodes="" visibleNodes="" name="ACDSTest" />
- </Register3>
- <Register4>
-  <RegisterWindow openNodes="CPU Registers" binaryNodes="" unsignedNodes="" decimalNodes="" octalNodes="" asciiNodes="" visibleNodes="" name="COMMTest" />
-  <RegisterWindow openNodes="CPU Registers" binaryNodes="" unsignedNodes="" decimalNodes="" octalNodes="" asciiNodes="" visibleNodes="" name="ACDSTest" />
- </Register4>
+ <Register1/>
+ <Register2/>
+ <Register3/>
+ <Register4/>
  <TargetWindow programAction="" uploadFileType="" programLoadAddress="" programSize="" uploadFileName="" uploadMemoryInterface="" programFileName="" uploadStartAddress="" programFileType="" uploadSize="" programMemoryInterface="" />
  <TraceWindow>
   <Trace enabled="Yes" />
@@ -75,18 +46,12 @@
   <Watches active="0" update="Never" />
  </Watch4>
  <Files>
-  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/Software/TestStack/ACDSTest/ACDS.c" y="25" path="Z:/Software/TestStack/ACDSTest/ACDS.c" left="0" selected="0" name="unnamed" top="21" />
-  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/Software/TestStack/ACDSTest/ACDS.h" y="11" path="Z:/Software/TestStack/ACDSTest/ACDS.h" left="0" selected="0" name="unnamed" top="4" />
-  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/Software/TestStack/ACDSTest/Error_decode.c" y="18" path="Z:/Software/TestStack/ACDSTest/Error_decode.c" left="0" selected="0" name="unnamed" top="0" />
-  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/Software/TestStack/ACDSTest/ACDS_errors.h" y="7" path="Z:/Software/TestStack/ACDSTest/ACDS_errors.h" left="0" selected="0" name="unnamed" top="0" />
-  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="43" debugPath="Z:/Software/TestStack/ACDSTest/main.c" y="75" path="Z:/Software/TestStack/ACDSTest/main.c" left="0" selected="1" name="unnamed" top="32" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/ARC-2/ARC2-SYS/TestStack (not on git)/ACDS-Test/commands.c" y="14" path="Z:/ARC-2/ARC2-SYS/TestStack (not on git)/ACDS-Test/commands.c" left="0" selected="0" name="unnamed" top="6" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="16" debugPath="Z:/ARC-2/ARC2-SYS/TestStack (not on git)/ACDS-Test/main.c" y="39" path="Z:/ARC-2/ARC2-SYS/TestStack (not on git)/ACDS-Test/main.c" left="0" selected="0" name="unnamed" top="30" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/ARC-2/ARC2-SYS/TestStack (not on git)/ACDS-Test/ACDS.c" y="141" path="Z:/ARC-2/ARC2-SYS/TestStack (not on git)/ACDS-Test/ACDS.c" left="0" selected="0" name="unnamed" top="117" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="2" debugPath="Z:/ARC-2/ARC2-SYS/TestStack (not on git)/ACDS-Test/ACDS.h" y="21" path="Z:/ARC-2/ARC2-SYS/TestStack (not on git)/ACDS-Test/ACDS.h" left="0" selected="1" name="unnamed" top="21" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/ARC-2/ARC2-SYS/TestStack (not on git)/ACDS-Test/ACDS_errors.h" y="0" path="Z:/ARC-2/ARC2-SYS/TestStack (not on git)/ACDS-Test/ACDS_errors.h" left="0" selected="0" name="unnamed" top="0" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/ARC-2/ARC2-Software/include/ARCbus.h" y="58" path="Z:/ARC-2/ARC2-Software/include/ARCbus.h" left="0" selected="0" name="unnamed" top="36" />
  </Files>
- <MSP430CrossStudioWindow activeProject="ACDSTest" autoConnectTarget="MSP-FET430UIF(V3)" debugSearchFileMap="z:/software/libraries/arclib/async.c
-
-z:/software/libraries/arclib/buffer.c
-
-z:/software/libraries/arclib/mainloop.c
-
-z:/software/libraries/termlib/terminal.c
-C:/Users/dthorsen/Desktop/SSEP-Z/Software/Libraries/termlib/terminal.c" fileDialogInitialDirectory="Z:/Software/Libraries/ARClib" fileDialogDefaultFilter="*.c" autoConnectCapabilities="528255" debugSearchPath="" buildConfiguration="MSP430 Debug" />
+ <MSP430CrossStudioWindow activeProject="ACDSTest" autoConnectTarget="MSP-FET430UIF(V3)" debugSearchFileMap="" fileDialogInitialDirectory="" fileDialogDefaultFilter="*.c" autoConnectCapabilities="528255" debugSearchPath="" buildConfiguration="MSP430 Debug" />
 </session>

@@ -1,11 +1,7 @@
 <!DOCTYPE CrossStudio_Session_File>
 <session>
  <Bookmarks/>
- <Breakpoints>
-  <BreakpointListItem line="25" action="" hardwareBreakpoint="" trigger="" useHWbreakpoint="false" group="Breakpoints" type="Breakpoint" state="2" counter="0" isFunctionBreakpoint="false" filename="Z:/Software/Libraries/ErrorLib/error.c" expression="" />
-  <BreakpointListItem line="307" action="" hardwareBreakpoint="" trigger="" useHWbreakpoint="false" group="Breakpoints" type="Breakpoint" state="4" counter="0" isFunctionBreakpoint="false" filename="Z:/Software/Libraries/ErrorLib/error.c" expression="" />
-  <BreakpointListItem line="55" action="" hardwareBreakpoint="" trigger="" useHWbreakpoint="false" group="Breakpoints" type="Breakpoint" state="2" counter="0" isFunctionBreakpoint="false" filename="Z:/Software/TestStack/IMGTest/IMG_errors.h" expression="" />
- </Breakpoints>
+ <Breakpoints/>
  <EEMRegistersWindow>
   <EEMRegisters moduleClockControl="2407" generalClockControl="2e" />
  </EEMRegistersWindow>
@@ -38,7 +34,7 @@
   <ProjectSessionItem path="IMGTest;IMGTest;Source Files" name="unnamed" />
  </Project>
  <Register1>
-  <RegisterWindow openNodes="PJ;SFR;SFR/SFRRPCR" binaryNodes="" unsignedNodes="" decimalNodes="" octalNodes="" asciiNodes="" visibleNodes="CPU Registers/PC;CPU Registers/SP;CPU Registers/SR;CPU Registers/R4;CPU Registers/R5;CPU Registers/R6;CPU Registers/R7;CPU Registers/R8;CPU Registers/R9;CPU Registers/R10;CPU Registers/R11;CPU Registers/R12;CPU Registers/R13;CPU Registers/R14;CPU Registers/R15;PJ/PJIN;PJ/PJOUT;PJ/PJDIR;PJ/PJREN;PJ/PJDS;PJ/PJSEL;PJ/PJIN_L;PJ/PJOUT_L;PJ/PJDIR_L;PJ/PJREN_L;PJ/PJDS_L;PJ/PJSEL_L;PJ/PJIN_H;PJ/PJOUT_H;PJ/PJDIR_H;PJ/PJREN_H;PJ/PJDS_H;PJ/PJSEL_H;SFR/SFRIE1;SFR/SFRIFG1;SFR/SFRRPCR" name="IMGTest" />
+  <RegisterWindow openNodes="CPU Registers" binaryNodes="" unsignedNodes="" decimalNodes="" octalNodes="" asciiNodes="" visibleNodes="CPU Registers/PC;CPU Registers/SP;CPU Registers/SR;CPU Registers/R4;CPU Registers/R5;CPU Registers/R6;CPU Registers/R7;CPU Registers/R8;CPU Registers/R9;CPU Registers/R10;CPU Registers/R11;CPU Registers/R12;CPU Registers/R13;CPU Registers/R14;CPU Registers/R15" name="IMGTest" />
  </Register1>
  <Register2>
   <RegisterWindow openNodes="CPU Registers" binaryNodes="" unsignedNodes="" decimalNodes="" octalNodes="" asciiNodes="" visibleNodes="CPU Registers/PC;CPU Registers/SP;CPU Registers/SR;CPU Registers/R4;CPU Registers/R5;CPU Registers/R6;CPU Registers/R7;CPU Registers/R8;CPU Registers/R9;CPU Registers/R10;CPU Registers/R11;CPU Registers/R12;CPU Registers/R13;CPU Registers/R14;CPU Registers/R15" name="IMGTest" />
@@ -55,11 +51,7 @@
  </TraceWindow>
  <Watch1>
   <Watches active="1" update="Never" >
-   <Watchpoint linenumber="312" radix="-1" name="i" expression="i" filename="Z:/Software/Libraries/ErrorLib/error.c" />
-   <Watchpoint linenumber="307" radix="-1" name="source" expression="source" filename="Z:/Software/Libraries/ErrorLib/error.c" />
-   <Watchpoint linenumber="312" radix="-1" name="flags" expression="flags" filename="Z:/Software/Libraries/ErrorLib/error.c" />
-   <Watchpoint evalMode="2" linenumber="23" numelements="4" evalType="0" radix="-1" name="decode_tbl" expression="decode_tbl" filename="Z:/Software/Libraries/ErrorLib/error.c" />
-   <Watchpoint linenumber="21" radix="-1" name="err_next_decode" expression="err_next_decode" filename="Z:/Software/Libraries/ErrorLib/error.c" />
+   <Watchpoint linenumber="35" radix="16" name="found" expression="found" filename="Z:/ARC-2/ARC2-SYS/TestStack (not on git)/IMG-Test/main.c" />
   </Watches>
  </Watch1>
  <Watch2>
@@ -72,12 +64,11 @@
   <Watches active="0" update="Never" />
  </Watch4>
  <Files>
-  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/Software/TestStack/IMGTest/commands.c" y="12" path="Z:/Software/TestStack/IMGTest/commands.c" left="0" selected="0" name="unnamed" top="15" />
-  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/Software/TestStack/IMGTest/IMG.c" y="3" path="Z:/Software/TestStack/IMGTest/IMG.c" left="0" selected="0" name="unnamed" top="0" />
-  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/Software/TestStack/IMGTest/IMG.h" y="11" path="Z:/Software/TestStack/IMGTest/IMG.h" left="0" selected="0" name="unnamed" top="0" />
-  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/Software/TestStack/IMGTest/Error_decode.c" y="17" path="Z:/Software/TestStack/IMGTest/Error_decode.c" left="0" selected="0" name="unnamed" top="0" />
-  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="z:/software/teststack/imgtest/main.c" y="73" path="Z:/software/teststack/imgtest/main.c" left="0" selected="0" name="unnamed" top="69" />
-  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/Software/TestStack/IMGTest/IMG_errors.h" y="9" path="Z:/Software/TestStack/IMGTest/IMG_errors.h" left="0" selected="1" name="unnamed" top="0" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/ARC-2/ARC2-SYS/TestStack (not on git)/IMG-Test/commands.c" y="29" path="Z:/ARC-2/ARC2-SYS/TestStack (not on git)/IMG-Test/commands.c" left="0" selected="1" name="unnamed" top="0" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="29" debugPath="Z:/ARC-2/ARC2-SYS/TestStack (not on git)/IMG-Test/main.c" y="55" path="Z:/ARC-2/ARC2-SYS/TestStack (not on git)/IMG-Test/main.c" left="0" selected="0" name="unnamed" top="36" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="14" debugPath="Z:/ARC-2/ARC2-SYS/TestStack (not on git)/IMG-Test/IMG.c" y="81" path="Z:/ARC-2/ARC2-SYS/TestStack (not on git)/IMG-Test/IMG.c" left="0" selected="0" name="unnamed" top="93" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="27" debugPath="Z:/ARC-2/ARC2-SYS/TestStack (not on git)/IMG-Test/IMG.h" y="16" path="Z:/ARC-2/ARC2-SYS/TestStack (not on git)/IMG-Test/IMG.h" left="0" selected="0" name="unnamed" top="0" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="Z:/arc-2/arc2-sys/teststack (not on git)/img-test/UC1int.c" y="9" path="Z:/arc-2/arc2-sys/teststack (not on git)/img-test/UC1int.c" left="0" selected="0" name="unnamed" top="0" />
  </Files>
- <MSP430CrossStudioWindow activeProject="IMGTest" autoConnectTarget="MSP-FET430UIF(V3)" debugSearchFileMap="" fileDialogInitialDirectory="Z:/Software/Libraries/ErrorLib" fileDialogDefaultFilter="*.c" autoConnectCapabilities="528255" debugSearchPath="" buildConfiguration="MSP430 Debug" />
+ <MSP430CrossStudioWindow activeProject="IMGTest" autoConnectTarget="MSP-FET430UIF(V3)" debugSearchFileMap="" fileDialogInitialDirectory="Z:/ARC-2/ARC2-SYS/TestStack (not on git)/IMG-Test" fileDialogDefaultFilter="*.c" autoConnectCapabilities="528255" debugSearchPath="" buildConfiguration="MSP430 Debug" />
 </session>

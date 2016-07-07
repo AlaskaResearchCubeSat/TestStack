@@ -13,7 +13,8 @@
 #include <Error.h>
 #include "CDH_errors.h"
 
-int statCmd(char **argv,unsigned short argc){
+int statCmd(char **argv,unsigned short argc)
+{
   int i;
   unsigned char *ptr;
   //Read status
@@ -40,85 +41,71 @@ int statCmd(char **argv,unsigned short argc){
       printf("No Status Info for IMG\r\n");
     }
   }
- //       ptr=(unsigned char*)&system_stat;
- //     for(i=0;i<sizeof(STAT_PACKET);i++){
- //       printf("0x%02X ",ptr[i]);
- //       if(i%15==14){
- //         printf("\r\n");
- //       }
- //     }
- //     printf("\r\n");
   //send status
   ctl_events_set_clear(&cmd_parse_evt,CMD_PARSE_SEND_STAT_CMD,0);
   return 0;
 }
 
-int beaconCmd(char **argv,unsigned short argc){
-  if(argc>1){
-    printf("Error : Too many arguments\r\n");
-    return -1;
-  }
-  if(argc==1){
-    if(!strcmp(argv[1],"on")){
-      beacon_on=1;
-    }else if(!strcmp(argv[1],"off")){
-      beacon_on=0;
-    }else{
-      printf("Error : Unknown argument \"%s\"\r\n",argv[1]);
-      return -2;
-    }
-  }
-  printf("Beacon : %s\r\n",beacon_on?"on":"off");
-  return 0;
-}
-
-int hard_reset_Cmd(char **argv,unsigned short argc){
+int hard_reset_Cmd(char **argv,unsigned short argc)
+{
   int i,hold=0;
   unsigned long num;
   char *end;
   char reset=0;
-  if(argc==0){
+  if(argc==0)
+  {
     printf("Error : %s requires one or more arguments\r\n",argv[0]);
     return -1;
   }
-  for(i=1;i<=argc;i++){
-    if(!strcmp(argv[i],"hold")){
+  for(i=1;i<=argc;i++)
+  {
+    if(!strcmp(argv[i],"hold"))
+    {
       hold=1;
-    }else if(!strcmp(argv[i],"LEDL")){
+    }else if(!strcmp(argv[i],"LEDL"))
+    {
       //set LEDL reset pin
       reset|=LEDL_RST_PIN;
-    }else if(!strcmp(argv[i],"ACDS")){
+    }else if(!strcmp(argv[i],"ACDS"))
+    {
       //set LEDL reset pin
       reset|=ACDS_RST_PIN;
-    }else if(!strcmp(argv[i],"COMM")){
+    }else if(!strcmp(argv[i],"COMM"))
+    {
       //set LEDL reset pin
       reset|=COMM_RST_PIN;
-    }else if(!strcmp(argv[i],"IMG")){
+    }else if(!strcmp(argv[i],"IMG"))
+    {
       //set LEDL reset pin
       reset|=IMG_RST_PIN;
-    }else if(!strcmp(argv[i],"all")){
+    }else if(!strcmp(argv[i],"all"))
+    {
       //set all reset pins
       reset|=LEDL_RST_PIN|ACDS_RST_PIN|COMM_RST_PIN|IMG_RST_PIN;
     }else{
       //attempt to parse numeric value
       num=strtoul(argv[i],&end,0);
       //check if anything worked
-      if(end==argv[i]){
+      if(end==argv[i])
+      {
         printf("Error : unknown argument %s\r\n",argv[i]);
         return -3;
       }
       //check for second argument
-      if(argc!=2){
+      if(argc!=2)
+      {
         printf("Error : numeric commands require 2 arguments\r\n");
         return -7;
       }
       //check for suffix
-      if(*end!='\0'){
+      if(*end!='\0')
+      {
         printf("Error : unknown suffix \"%s\" for \"%s\"\r\n",end,argv[i]);
         return -5;
       }
       //check range
-      if(num>0xFF){
+      if(num>0xFF)
+      {
         printf("Error : argument %lu is too large\r\n",num);
         return -6;
       }
@@ -147,8 +134,8 @@ int hard_reset_Cmd(char **argv,unsigned short argc){
   return 0;
 }
 
-
-int CDH_print_cmd(char **argv,unsigned short argc){
+int CDH_print_cmd(char **argv,unsigned short argc)
+{
   if(argc>1){
     printf("Error : too many arguments\r\n");
     return 1;
@@ -290,12 +277,11 @@ int stat_req_Cmd(char **argv,unsigned short argc){
 const CMD_SPEC cmd_tbl[]={{"help"," [command]",helpCmd},
                     ARC_COMMANDS,
                     //MMC_COMMANDS,
-                    MMC_INIT_CHECK_COMMAND,MMC_DUMP_COMMAND,MMC_DAT_COMMAND,MMC_CARD_SIZE_COMMAND,MMC_ERASE_COMMAND,MMC_INIT_COMMAND,
+                    //MMC_INIT_CHECK_COMMAND,MMC_DUMP_COMMAND,MMC_DAT_COMMAND,MMC_CARD_SIZE_COMMAND,MMC_ERASE_COMMAND,MMC_INIT_COMMAND,
                     ERROR_COMMANDS,
                     ARC_ASYNC_PROXY_COMMAND,
                     //CTL_COMMANDS,
                     {"stat","\r\n\t""Get status from all subsystems.", statCmd},
-                    {"beacon","[on|off]\r\n\t""Turn on/off status requests and beacon\r\n",beaconCmd},
                     {"hreset","\r\n\t""hard reset a given system",hard_reset_Cmd},
                     {"cdhp","[on|off]...""\r\n\t""turn on or off printing",CDH_print_cmd},
                     {"power","on|off addr""\r\n\t""Power on or off a subsystem",power_Cmd},
@@ -303,6 +289,7 @@ const CMD_SPEC cmd_tbl[]={{"help"," [command]",helpCmd},
                     {"cmd","""\r\n\t""Print command names and values",I2CcmdName_Cmd},
                     {"spam","addr""\r\n\t""spam addr with I2C commands",I2C_spam_Cmd},
                     {"req","[on|off]""\r\n\t""Get/set status of status requests",stat_req_Cmd},
+                   
                    //end of list
 
                    {NULL,NULL,NULL}};

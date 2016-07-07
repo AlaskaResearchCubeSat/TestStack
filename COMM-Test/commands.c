@@ -86,10 +86,17 @@ int ground_cmd(char *argv[],unsigned short argc){
   return 0;
 }
 
+int COMMCmd(char **argv, unsigned short argc)
+{
+  printf("You are in COMM\r\n\t");
+  return 0;
+}
 
 //table of commands with help
-const CMD_SPEC cmd_tbl[]={{"help"," [command]",helpCmd},
-                    ARC_COMMANDS,CTL_COMMANDS,ERROR_COMMANDS,
+const CMD_SPEC cmd_tbl[]={
+                    {"COMM", "\r\n\t", COMMCmd},
+                    {"help"," [command]",helpCmd},
+                    //ARC_COMMANDS,CTL_COMMANDS,ERROR_COMMANDS,
                     {"gnd","addr cmd""\r\n\t""Simulate ground commands",ground_cmd},
                    //end of list
 

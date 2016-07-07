@@ -1,7 +1,3 @@
-//COMM Test
-//Denise Thorsen
-//2014-07-07
-
 #include <string.h>
 #include <ctl.h>
 #include <msp430.h>
@@ -13,6 +9,7 @@
 #include "COMM.h"
 #include "pins.h"
 #include "COMM_errors.h"
+#include <SDlib.h>
 
 //Define three task structures in array tasks (what are these tasks?)
 CTL_TASK_t tasks[3];
@@ -23,13 +20,17 @@ unsigned stack2[1+512+1];
 unsigned stack3[1+256+1];
 
 //make printf and friends to send chars out UCA1 uart
-int __putchar(int c){
-  return UCA1_TxChar(c);
+int __putchar(int c)
+{
+  async_TxChar(c);
+  UCA1_TxChar(c);
+  return 0;
 }
 
 //set scanf and friends to read chars from UAC1 uart
-int __getchar(void){
-    return UCA1_Getc();
+int __getchar(void)
+{
+  return async_Getc();
 }
 
 int main(void)
@@ -51,7 +52,7 @@ int main(void)
   //setup buss interface - COMM
   initARCbus(BUS_ADDR_COMM);
 
-  //setup command recive
+  //setup command receive
   BUS_register_cmd_callback(&COMM_parse);
 
   //initialize stacks
@@ -81,5 +82,4 @@ int main(void)
 
  //Call mainLoop to initialize the ARCbus task and drop the idle task priority to zero allowing other tasks to run.  This is the idle loop.
   mainLoop();
-
 }

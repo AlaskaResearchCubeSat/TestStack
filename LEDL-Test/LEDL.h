@@ -2,9 +2,11 @@
 #define __LEDL_H
 
   //events in LEDL_evt
-  enum{LEDL_EVT_STATUS_REQ=1<<3};
-
-  #define LEDL_EVT_ALL (LEDL_EVT_STATUS_REQ)
+  //enum{LEDL_EVT_STATUS_REQ=1<<3};
+  enum{LEDL_EV_SEND_STAT=1<<3};
+  #define LEDL_EVT_ALL (LEDL_EV_SEND_STAT)
+  
+  //#define LEDL_EVT_ALL (LEDL_EVT_STATUS_REQ)
 
   //structure for status data from LEDL
   //TODO: figure out LEDL status
@@ -33,6 +35,7 @@
   extern LEDL_STAT ledl_stat;
   extern EPS_STAT eps_stat;
 
+  extern CMD_PARSE_DAT LEDL_parse;
   //flags for STAT_PACKET
 
   //parse events from the bus for the subsystem

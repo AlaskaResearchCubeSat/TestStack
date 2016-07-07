@@ -16,12 +16,12 @@ int COMM_parseCmd(unsigned char src,unsigned char cmd,unsigned char *dat,unsigne
 
 CMD_PARSE_DAT COMM_parse={COMM_parseCmd,CMD_PARSE_ADDR0|CMD_PARSE_GC_ADDR,BUS_PRI_NORMAL,NULL};
 
-
 //handle COMM specific commands don't wait here.
 int COMM_parseCmd(unsigned char src, unsigned char cmd, unsigned char *dat, unsigned short len,unsigned char flags){
   int i;
   
-  switch(cmd){
+  switch(cmd)
+  {
     case CMD_BEACON_ON_OFF:
      //check length
      if(len!=1){
@@ -59,54 +59,20 @@ int COMM_parseCmd(unsigned char src, unsigned char cmd, unsigned char *dat, unsi
   return ERR_UNKNOWN_CMD;
 }
 
-#define LED_OUT       P7OUT
-
-enum{LED_DIR_RIGHT,LED_DIR_LEFT};
-int LED_dir=LED_DIR_LEFT;
-
-void LED_shift(void){
-  if(LED_dir==LED_DIR_RIGHT){
-    LED_OUT>>=1;
-    if(!LED_OUT){
-      LED_dir=LED_DIR_LEFT;
-      LED_OUT=BIT0;
-    }
-  }else{
-    LED_OUT<<=1;
-    if(!LED_OUT){
-      LED_dir=LED_DIR_RIGHT;
-      LED_OUT=BIT7;
-    }
-  }
-}
-
-void sub_events(void *p) __toplevel{
+void sub_events(void *p) __toplevel
+{
   unsigned int e;
   int i, resp;
   unsigned short len;
   unsigned char buf[BUS_I2C_HDR_LEN+sizeof(COMM_STAT)+BUS_I2C_CRC_LEN],*ptr;
 
-  for(;;){
+  for(;;)
+  {
     e=ctl_events_wait(CTL_EVENT_WAIT_ANY_EVENTS_WITH_AUTO_CLEAR,&SUB_events,SUB_EV_ALL,CTL_TIMEOUT_NONE,0);
 
-//******************* COMMAND TO POWER OFF??? NOTHING HAPPENING HERE **************
-    if(e&SUB_EV_PWR_OFF){
-      //print message
-      puts("System Powering Down\r\n");
-    }
-
-//******************* COMMAND TO POWER ON??? NOTHING HAPPENING HERE **************
-    if(e&SUB_EV_PWR_ON){
-      //print message
-      puts("System Powering Up\r\n");
-    }
-
 //******************* SEND COMM STATUS TO CDH ***************************
-    if(e&SUB_EV_SEND_STAT){
-      //send status
-      //puts("Sending status\r\n");
-      //shift LED's
-      LED_shift();
+    if(e&SUB_EV_SEND_STAT)
+    {
       //setup packet 
       ptr=BUS_cmd_init(buf,CMD_COMM_STAT);
       //fill in telemetry data
@@ -122,9 +88,9 @@ void sub_events(void *p) __toplevel{
       }
     }
 
-
 // ******************* RECEIVING DATA OVER SPI *************************
-    if(e&SUB_EV_SPI_DAT){
+    if(e&SUB_EV_SPI_DAT)
+    {
       len=arcBus_stat.spi_stat.len;
       /*printf("SPI data %u bytes recived:\r\n",len);
       //First byte contains sender address
@@ -138,19 +104,22 @@ void sub_events(void *p) __toplevel{
       BUS_free_buffer_from_event();
     }
 
-    if(e&SUB_EV_SPI_ERR_CRC){
+    if(e&SUB_EV_SPI_ERR_CRC)
+    {
       puts("SPI bad CRC\r");
       len=arcBus_stat.spi_stat.len;
       printf("Stated transaction size : %u bytes\r\n",len);
       //print data
-      for(i=0;i<len+2;i++){
+      for(i=0;i<len+2;i++)
+      {
         printf("0x%02X%s",arcBus_stat.spi_stat.rx[i],((i%16)==15)?"\r\n":" ");
         //TESTING: zero data
         arcBus_stat.spi_stat.rx[i]=0;
       }
       report_error(ERR_LEV_ERROR,COMM_ERR_SRC_SUBSYSTEM,COMM_ERR_SPI_CRC,0);
     }
-    if(e&SUB_EV_SPI_ERR_BUSY){
+    if(e&SUB_EV_SPI_ERR_BUSY)
+    {
       puts("SPI BUSY\r");
       report_error(ERR_LEV_ERROR,COMM_ERR_SRC_SUBSYSTEM,COMM_ERR_SPI_BUSY,0);
     }
@@ -159,11 +128,13 @@ void sub_events(void *p) __toplevel{
 
 
 //handle COMM specific commands don't wait here.
-int SUB_parseCmd(unsigned char src, unsigned char cmd, unsigned char *dat, unsigned short len){
+int SUB_parseCmd(unsigned char src, unsigned char cmd, unsigned char *dat, unsigned short len)
+{
   return ERR_UNKNOWN_CMD;
 }
 
-void COMM_events(void *p) __toplevel{
+void COMM_events(void *p) __toplevel
+{
   unsigned int e;
   int i; 
 //  char TestPacket[45];  //THIS IS FOR TESTING ONLY
@@ -178,7 +149,8 @@ void COMM_events(void *p) __toplevel{
   ctl_events_init(&COMM_evt,0);
 
   //endless loop
-  for(;;){
+  for(;;)
+  {
     //wait for events
     e=ctl_events_wait(CTL_EVENT_WAIT_ANY_EVENTS_WITH_AUTO_CLEAR,&COMM_evt,COMM_EVT_ALL,CTL_TIMEOUT_NONE,0);
 
@@ -187,13 +159,16 @@ void COMM_events(void *p) __toplevel{
        status.dat[0]++;                  //THIS IS FOR TESTING ONLY
                                   //Eventually need to do some actual stuff here
     }
-    if(e&COMM_EVT_BEACON_ON_OFF){
+    if(e&COMM_EVT_BEACON_ON_OFF)
+    {
       printf("Beacon = %s\r\n",beacon_on?"on":"off");
     }
-    if(e&COMM_EVT_BEACON_TYPE){
+    if(e&COMM_EVT_BEACON_TYPE)
+    {
       printf("Beacon = %s\r\n",beacon_flag?"status":"hello");
     }
-    if(e&COMM_EVT_CDH_RESET){
+    if(e&COMM_EVT_CDH_RESET)
+    {
       //print out value
       printf("Resetting CDH\r\n");
       //reset pin high
@@ -206,18 +181,5 @@ void COMM_events(void *p) __toplevel{
       printf("Reset Complete\r\n");
     }
   }
-
-}
-
-void PrintBuffer(char *dat, unsigned int len){
-   int i;
-
-   for(i=0;i<len;i++){
-      printf("0X%02X ",__bit_reverse_char(dat[i])); //print MSB first so it is understandable
-      if((i)%15==14){
-        printf("\r\n");
-      }
-    }
-    printf("\r\n");
 }
 

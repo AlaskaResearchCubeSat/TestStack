@@ -1,7 +1,3 @@
-//CDH Test
-//Denise Thorsen
-//2014-07-10
-
 #include <msp430.h>
 #include <string.h>
 #include <ctl.h>
@@ -23,17 +19,21 @@ unsigned stack2[1+500+1];
 unsigned stack3[1+500+1];
 
 //set printf and friends to send chars out UCA1 uart
-int __putchar(int c){
+int __putchar(int c)
+{
   //don't print if async connection is open
-  if(!async_isOpen()){
+  if(!async_isOpen())
+  {
     return UCA1_TxChar(c);
-  }else{
-    return EOF;
+  }else
+  {
+    return 0;
   }
 }
 
 //set scanf and friends to read chars from UCA1 uart
-int __getchar(void){
+int __getchar(void)
+{
     return UCA1_Getc();
 }
 
@@ -79,7 +79,7 @@ int main(void){
   //===============[setup ARC Peripherals and tasking]===============
   initARCbus(BUS_ADDR_CDH);
 
-  //setup command recive
+  //setup command receive
   BUS_register_cmd_callback(&CDH_parse);
   
   //=====================[setup subsystem tasks]=====================
@@ -110,7 +110,6 @@ int main(void){
   }
   P7DIR = 0xFF;
   P7SEL0 = 0;
-
 
   //=======================[enter Idle loop]=======================
   //initialize the ARCbus task and drop the idle task priority to zero allowing other tasks to run
